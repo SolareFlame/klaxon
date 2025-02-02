@@ -23,6 +23,8 @@ ytDlpProcess.on('close', (code) => {
 
 const icecastUrl = `icecast://source:${process.env.PASS}@${process.env.HOST}:${process.env.PORT}${process.env.MOUNT}`;
 
+console.log(`Streaming to ${icecastUrl}`);
+
 const ffmpegProcess = spawn('ffmpeg', [
     '-re',
     '-i', 'pipe:0',

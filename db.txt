@@ -1,0 +1,16 @@
+CONTENT
+- id (TEXT) PK: from YT url
+- title (TEXT)
+- duration (INT): in seconds
+- thumbnail_image_url (TEXT)
+- artists (ARRAY): ids
+- tags (ARRAY): ids
+
+ARTIST
+- id (TEXT) PK: from YT url
+- name (TEXT)
+- thumbnail_image_url (TEXT)
+
+TAG
+- id (TEXT) PK: from YT url
+- desc (TEXT)
