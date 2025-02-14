@@ -18,6 +18,7 @@ class User extends Authenticatable
         'pass',
         'perm_level',
         'icetoken',
+        'is_listening',
     ];
 
     protected $hidden = [
