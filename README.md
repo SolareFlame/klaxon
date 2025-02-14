@@ -8,7 +8,7 @@
 [![contributors](https://img.shields.io/github/contributors-anon/SolareFlame/klaxon)](#)
 [![stars](https://img.shields.io/github/stars/SolareFlame/klaxon)](#)
 
-⭐ Star us on GitHub ! 
+⭐ Star us on GitHub !
 
 [![laravel](https://img.shields.io/badge/laravel-grey?logo=laravel)](#)
 [![icecast](https://img.shields.io/badge/icecast-grey?logo=podcastindex)](#)
