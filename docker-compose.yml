@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+    mysql:
+        image: mysql:8
+        container_name: klaxon_mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: klaxon
+            MYSQL_USER: klaxon_user
+            MYSQL_PASSWORD: klaxon_pass
+        volumes:
+            - db_data:/var/lib/mysql
+        ports:
+            - "3306:3306"
+
+    laravel:
+        build: ./laravel
+        container_name: klaxon_laravel
+        depends_on:
+            - mysql
+        environment:
+            DB_HOST: mysql
+            DB_DATABASE: klaxon
+            DB_USERNAME: klaxon_user
+            DB_PASSWORD: klaxon_pass
+        volumes:
+            - ./laravel:/var/www
+        ports:
+            - "8000:80"
+
+    react:
+        build: ./react
+        container_name: klaxon_react
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./react:/app
+        command: npm start
+
+    srs:
+        build: ./srs
+        container_name: klaxon_srs
+        ports:
+            - "1935:1935"   # Port RTMP
+            - "8080:8080"   # Port HTTP/WebRTC
+            - "1985:1985"   # Port API/statistiques
+        volumes:
+            - ./srs/config:/usr/local/srs/conf
+            - ./music:/music
+        command: /bin/bash -c "./start.sh"
+
+volumes:
+    db_data:
